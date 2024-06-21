@@ -2,6 +2,7 @@
     perspective: 1000px;
     width: 182px;
     height: 240px;
+    --bs-border-radius: 1rem;
 }
 
 .front-image-container {
