@@ -105,19 +105,19 @@ function shuffle(array) {
 function getWords(count=6) {
     log('info','get words of count',count);
     const words = [
-        { image: './static/images/cat.jpg', title: 'Cat', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/En-uk-a_cat.ogg', audioType: "audio/ogg"},
-        { image: './static/images/dog.jpg', title: 'Dog', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/4/47/En-uk-a_dog.ogg', audioType: "audio/ogg"},
-        { image: './static/images/horse.jpg', title: 'Horse', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/En-uk-a_horse.ogg', audioType: "audio/ogg"},
-        { image: './static/images/cow.jpg', title: 'Cow', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/En-uk-a_cow.ogg', audioType: "audio/ogg"},
-        { image: './static/images/rabbit.jpg', title: 'Rabbit', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/En-uk-a_rabbit.ogg', audioType: "audio/ogg"},
-        { image: './static/images/bird.jpg', title: 'Bird', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/8/83/En-uk-a_bird.ogg', audioType: "audio/ogg"},
-        { image: './static/images/fish.jpg', title: 'Fish', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/En-uk-fish.ogg', audioType: "audio/ogg"},
-        { image: './static/images/chicken.jpg', title: 'Chicken', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/En-uk-a_chicken.ogg', audioType: "audio/ogg"},
-        { image: './static/images/sheep.jpg', title: 'Sheep', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/En-uk-a_sheep.ogg', audioType: "audio/ogg"},
-        { image: './static/images/duck.webp', title: 'Duck', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/En-us-duck.ogg', audioType: "audio/ogg"},
-        { image: './static/images/pig.jpg', title: 'Pig', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Pronunciation_example_of_the_word_Pig_in_British_English.ogg', audioType: "audio/ogg"},
-        { image: './static/images/lion.jpg', title: 'Lion', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/En-us-lion.ogg', audioType: "audio/ogg"},
-        { image: './static/images/elephant.webp', title: 'Elephant', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/En-us-elephant.ogg', audioType: "audio/ogg"},
+        { title: 'cat', type: 'animal', image: './static/images/animals/cat.jpg', en: 'Cat', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/En-uk-a_cat.ogg', audioType: "audio/ogg"},
+        { title: 'dog', type: 'animal', image: './static/images/animals/dog.jpg', en: 'Dog', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/4/47/En-uk-a_dog.ogg', audioType: "audio/ogg"},
+        { title: 'horse', type: 'animal', image: './static/images/animals/horse.jpg', en: 'Horse', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/En-uk-a_horse.ogg', audioType: "audio/ogg"},
+        { title: 'cow', type: 'animal', image: './static/images/animals/cow.jpg', en: 'Cow', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/En-uk-a_cow.ogg', audioType: "audio/ogg"},
+        { title: 'rabbit', type: 'animal', image: './static/images/animals/rabbit.jpg', en: 'Rabbit', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/En-uk-a_rabbit.ogg', audioType: "audio/ogg"},
+        { title: 'bird', type: 'animal', image: './static/images/animals/bird.jpg', en: 'Bird', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/8/83/En-uk-a_bird.ogg', audioType: "audio/ogg"},
+        { title: 'fish', type: 'animal', image: './static/images/animals/fish.jpg', en: 'Fish', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/En-uk-fish.ogg', audioType: "audio/ogg"},
+        { title: 'chicken', type: 'animal', image: './static/images/animals/chicken.jpg', en: 'Chicken', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/En-uk-a_chicken.ogg', audioType: "audio/ogg"},
+        { title: 'sheep', type: 'animal', image: './static/images/animals/sheep.jpg', en: 'Sheep', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/En-uk-a_sheep.ogg', audioType: "audio/ogg"},
+        { title: 'duck', type: 'animal', image: './static/images/animals/duck.jpg', en: 'Duck', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/En-us-duck.ogg', audioType: "audio/ogg"},
+        { title: 'pig', type: 'animal', image: './static/images/animals/pig.jpg', en: 'Pig', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Pronunciation_example_of_the_word_Pig_in_British_English.ogg', audioType: "audio/ogg"},
+        { title: 'lion', type: 'animal', image: './static/images/animals/lion.jpg', en: 'Lion', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/En-us-lion.ogg', audioType: "audio/ogg"},
+        { title: 'elephant', type: 'animal', image: './static/images/animals/elephant.jpg', en: 'Elephant', audioSource: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/En-us-elephant.ogg', audioType: "audio/ogg"},
     ];
     if (count>words.length) { count = words.length}
     shuffle(words);
@@ -143,7 +143,7 @@ function gameRestart() {
         const cardClone = cardTemplate.cloneNode(true);
         cardClone.classList.remove('d-none');
         cardClone.querySelector('.front-image').src = card.image;
-        cardClone.querySelector('.card-title').textContent = card.title;
+        cardClone.querySelector('.card-title').textContent = card.en;
         cardRow.appendChild(cardClone);
         cardClone.getElementsByClassName("card-container")[0].id = card.id;
         cardClone.getElementsByTagName("source")[0].src = card.audioSource;
