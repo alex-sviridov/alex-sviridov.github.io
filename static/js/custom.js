@@ -1,4 +1,5 @@
 var cards = []
+const cardsSet = (new URLSearchParams(window.location.search)).get('set');
 
 function wait(ms){
     var start = new Date().getTime();
@@ -90,6 +91,8 @@ function gameWin() {
     log('info','game won');
     const winModal = new bootstrap.Modal(document.getElementById('winModal'));
     winModal.show();
+    audio = document.getElementById('winModal').getElementsByTagName("audio")[0];
+    audio.play(); 
 }
 
 function shuffle(array) {
@@ -102,13 +105,17 @@ function shuffle(array) {
     }
     }
 
-async function getWords(count=6) {
-    log('info','get words of count',count);
+async function getWords(count=6,cardsSet='animal') {
+    if (!cardsSet) {
+        cardsSet = 'animal'
+    }
+    log('info',`get words of count ${count} cards set ${cardsSet}`);
     const response = await fetch('./data/words.json');
       if (!response.ok) {
         throw new Error('Network response was not ok ' + response.statusText);
       }
-    const words = await response.json();
+    let words = await response.json();
+    words = words.filter(function(item){return item.type == cardsSet;})
     if (count>words.length) { count = words.length}
     shuffle(words);
     var result = words.slice(0,count);
@@ -121,7 +128,7 @@ async function gameRestart() {
     if (cards) {
         cards.forEach((card) => cardToBack(card.id));
     }
-    cards = await getWords(6);
+    cards = await getWords(6,cardsSet);
     cards = cards.flatMap(item => [item, item])
     cards = cards.map((item,index) => ({...item, id: "card"+(index+1), solved: false, front: false}));
     shuffle(cards);
@@ -146,5 +153,7 @@ async function gameRestart() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    if (cardsSet == 'toy') { document.getElementById('wordSetButton').innerHTML='⚽🧩'; }
+    else { document.getElementById('wordSetButton').innerHTML='🐰🦁'; }
     gameRestart();
 });
