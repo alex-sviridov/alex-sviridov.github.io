@@ -46,8 +46,13 @@
     backface-visibility: hidden;
 }
 
-.flipped, .solved .card-flip {
+.flipped, .solved .memory {
     transform: rotateY(180deg);
+}
+
+
+.solved .listening {
+    transform: rotateY(360deg);
 }
 
 .deactivated {

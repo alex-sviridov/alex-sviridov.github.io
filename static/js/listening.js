@@ -6,37 +6,21 @@ function cardClick(cardId) {
     //Check if two cards are already flipped. If so - unflip all cards
     flippedCardsNum = cards.filter(function(item){return item.front;}).length; 
     if (flippedCardsNum > 1) {
-        cards.filter(function(item){return item.front;}).forEach((card) => cardToBack(card.id));
+        cards.filter(function(item){return item.front;}).forEach((card) => card.front = false);
     } 
-    cardToFront(cardId);
-    if (flippedCardsNum == 1) {
-        cardCheckParity();
-    }
-};
-
-function cardToFront(cardId) {
-    card = cards.find(x => x.id === cardId);
+    var card = cards.find(x => x.id === cardId);
+    log('debug','clicked',card)
     if (!card.front) {
         log('info','flipping card to front',card)
         card.front = true;
         cartObject = document.getElementById(cardId);
-        cartObject.classList.add('deactivated');
-        flipCardObject = cartObject.getElementsByClassName("card-flip")[0];
-        flipCardObject.classList.add('flipped');
         audio = cartObject.getElementsByTagName("audio")[0];
         audio.play(); 
+        if (flippedCardsNum == 1) {
+            cardCheckParity();
+        }
     }
-}
-
-function cardToBack(cardId) {
-    card = cards.find(x => x.id === cardId);
-    log('info','flipping card to back',card)
-    card.front = false;
-    cartObject = document.getElementById(cardId);
-    cartObject.classList.remove('deactivated');
-    flipCardObject = cartObject.getElementsByClassName("card-flip")[0];
-    flipCardObject.classList.remove('flipped');
-}
+};
 
 function cardCheckParity() {
     let card1 = cards.filter(function(item){return item.front;})[0];
@@ -54,7 +38,6 @@ function cardSolve(card) {
     cardObject = document.getElementById(card.id);
     cardObject.classList.add('solved');
     cardObject.removeAttribute('onclick');
-    cardToBack(card.id);
     checkFinished();
 }
 
@@ -75,13 +58,13 @@ function gameWin() {
 
 async function gameRestart() {
     log('info','starting a new game');
-    if (cards) {
-        cards.forEach((card) => cardToBack(card.id));
-    }
-    cards = await getWords(6,cardsSet);
-    cards = cards.flatMap(item => [item, item])
-    cards = cards.map((item,index) => ({...item, id: "card"+(index+1), solved: false, front: false}));
-    shuffle(cards);
+    //TODO: Animation for table update
+    var words = await getWords(6,cardsSet);
+    var sounds = words.map((item,index) => ({...item, id: "sound"+(index+1), type: 'sound', solved: false, front: false}));
+    var pictures = words.map((item,index) => ({...item, id: "card"+(index+1), type: 'picture', solved: false, front: false}));
+    shuffle(sounds);
+    shuffle(pictures);
+    cards = sounds.concat(pictures);
     log('info','new cards list',cards);
     const cardRow = document.getElementById('table');
     cardRow.innerHTML = ""; 
@@ -90,8 +73,13 @@ async function gameRestart() {
         log('info','add card to the table',card);
         const cardClone = cardTemplate.cloneNode(true);
         cardClone.classList.remove('d-none');
-        cardClone.querySelector('.front-image').src = card.image;
-        cardClone.querySelector('.card-title').textContent = card.en;
+        if (card.type == 'picture') {
+            cardClone.querySelector('.front-image').src = card.image;
+            cardClone.querySelector('.card-title').textContent = card.en;
+        } else {
+            cardClone.querySelector('.front-image').src = "./static/images/sound.png";
+            cardClone.querySelector('.card-title').textContent = "";
+        }
         cardRow.appendChild(cardClone);
         cardClone.getElementsByClassName("card-container")[0].id = card.id;
         cardClone.getElementsByTagName("source")[0].src = card.audioSource;
