@@ -2,7 +2,7 @@
     {
         "title": "cat",
         "type": "animal",
-        "image": "./static/images/animal/cat.jpg",
+        "image": "./static/images/animal/cat.png",
         "en": "Cat",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/1/1e/En-uk-a_cat.ogg",
         "audioType": "audio/ogg"
@@ -10,7 +10,7 @@
     {
         "title": "dog",
         "type": "animal",
-        "image": "./static/images/animal/dog.jpg",
+        "image": "./static/images/animal/dog.png",
         "en": "Dog",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/4/47/En-uk-a_dog.ogg",
         "audioType": "audio/ogg"
@@ -18,7 +18,7 @@
     {
         "title": "horse",
         "type": "animal",
-        "image": "./static/images/animal/horse.jpg",
+        "image": "./static/images/animal/horse.png",
         "en": "Horse",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/1/1a/En-uk-a_horse.ogg",
         "audioType": "audio/ogg"
@@ -26,7 +26,7 @@
     {
         "title": "cow",
         "type": "animal",
-        "image": "./static/images/animal/cow.jpg",
+        "image": "./static/images/animal/cow.png",
         "en": "Cow",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/1/1c/En-uk-a_cow.ogg",
         "audioType": "audio/ogg"
@@ -34,7 +34,7 @@
     {
         "title": "rabbit",
         "type": "animal",
-        "image": "./static/images/animal/rabbit.jpg",
+        "image": "./static/images/animal/rabbit.png",
         "en": "Rabbit",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/d/d3/En-uk-a_rabbit.ogg",
         "audioType": "audio/ogg"
@@ -42,7 +42,7 @@
     {
         "title": "bird",
         "type": "animal",
-        "image": "./static/images/animal/bird.jpg",
+        "image": "./static/images/animal/bird.png",
         "en": "Bird",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/8/83/En-uk-a_bird.ogg",
         "audioType": "audio/ogg"
@@ -50,7 +50,7 @@
     {
         "title": "fish",
         "type": "animal",
-        "image": "./static/images/animal/fish.jpg",
+        "image": "./static/images/animal/fish.png",
         "en": "Fish",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/f/f8/En-uk-fish.ogg",
         "audioType": "audio/ogg"
@@ -58,7 +58,7 @@
     {
         "title": "chicken",
         "type": "animal",
-        "image": "./static/images/animal/chicken.jpg",
+        "image": "./static/images/animal/chicken.png",
         "en": "Chicken",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/1/1d/En-uk-a_chicken.ogg",
         "audioType": "audio/ogg"
@@ -66,7 +66,7 @@
     {
         "title": "sheep",
         "type": "animal",
-        "image": "./static/images/animal/sheep.jpg",
+        "image": "./static/images/animal/sheep.png",
         "en": "Sheep",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/d/d0/En-uk-a_sheep.ogg",
         "audioType": "audio/ogg"
@@ -74,7 +74,7 @@
     {
         "title": "duck",
         "type": "animal",
-        "image": "./static/images/animal/duck.jpg",
+        "image": "./static/images/animal/duck.png",
         "en": "Duck",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/5/5b/En-us-duck.ogg",
         "audioType": "audio/ogg"
@@ -82,7 +82,7 @@
     {
         "title": "pig",
         "type": "animal",
-        "image": "./static/images/animal/pig.jpg",
+        "image": "./static/images/animal/pig.png",
         "en": "Pig",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Pronunciation_example_of_the_word_Pig_in_British_English.ogg",
         "audioType": "audio/ogg"
@@ -90,15 +90,79 @@
     {
         "title": "lion",
         "type": "animal",
-        "image": "./static/images/animal/lion.jpg",
+        "image": "./static/images/animal/lion.png",
         "en": "Lion",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/a/aa/En-us-lion.ogg",
         "audioType": "audio/ogg"
     },
     {
+        "title": "bear",
+        "type": "animal",
+        "image": "./static/images/animal/bear.png",
+        "en": "Bear",
+        "audioSource": "https://upload.wikimedia.org/wikipedia/commons/c/c7/En-us-bear.ogg",
+        "audioType": "audio/ogg"
+    },
+    {
+        "title": "frog",
+        "type": "animal",
+        "image": "./static/images/animal/frog.png",
+        "en": "Frog",
+        "audioSource": "https://upload.wikimedia.org/wikipedia/commons/0/0e/En-us-frog.ogg",
+        "audioType": "audio/ogg"
+    },
+    {
+        "title": "giraffe",
+        "type": "animal",
+        "image": "./static/images/animal/giraffe.png",
+        "en": "Giraffe",
+        "audioSource": "https://upload.wikimedia.org/wikipedia/commons/a/a8/En-us-giraffe.ogg",
+        "audioType": "audio/ogg"
+    },
+    {
+        "title": "monkey",
+        "type": "animal",
+        "image": "./static/images/animal/monkey.png",
+        "en": "Monkey",
+        "audioSource": "https://upload.wikimedia.org/wikipedia/commons/7/74/En-us-monkey.ogg",
+        "audioType": "audio/ogg"
+    },
+    {
+        "title": "mouse",
+        "type": "animal",
+        "image": "./static/images/animal/mouse.png",
+        "en": "Mouse",
+        "audioSource": "https://upload.wikimedia.org/wikipedia/commons/4/40/En-us-mouse.ogg",
+        "audioType": "audio/ogg"
+    },
+    {
+        "title": "tiger",
+        "type": "animal",
+        "image": "./static/images/animal/tiger.png",
+        "en": "Tiger    ",
+        "audioSource": "https://upload.wikimedia.org/wikipedia/commons/e/ee/En-us-tiger.ogg",
+        "audioType": "audio/ogg"
+    },
+    {
+        "title": "turtle",
+        "type": "animal",
+        "image": "./static/images/animal/turtle.png",
+        "en": "Turtle",
+        "audioSource": "https://upload.wikimedia.org/wikipedia/commons/3/3a/En-us-turtle.ogg",
+        "audioType": "audio/ogg"
+    },
+    {
+        "title": "zebra",
+        "type": "animal",
+        "image": "./static/images/animal/zebra.png",
+        "en": "Zebra",
+        "audioSource": "https://upload.wikimedia.org/wikipedia/commons/4/4e/En-us-zebra.ogg",
+        "audioType": "audio/ogg"
+    },
+    {
         "title": "elephant",
         "type": "animal",
-        "image": "./static/images/animal/elephant.jpg",
+        "image": "./static/images/animal/elephant.png",
         "en": "Elephant",
         "audioSource": "https://upload.wikimedia.org/wikipedia/commons/f/f2/En-us-elephant.ogg",
         "audioType": "audio/ogg"
